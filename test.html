@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title>翻转文字</title>
+	<style>
+		html,body{
+			font-family: "Microsoft YaHei";
+			background-color: #DBDBDB;
+		}
+		.box{
+			margin-top: 200px;
+			text-align: center;
+			font-size: 100px;
+		}
+		.box span{
+			display: inline-block;
+			position: relative;
+		}
+		.box span::before,
+		.box span::after{
+			content: attr(data-str);
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: all 1s;
+			transform-origin: left center; 
+		}
+		.box span::before{
+			z-index: 3;
+			color: #fff;
+			transform: rotateY(-15deg);
+		}
+		.box span::after{
+			z-index: 2;
+			color: rgba(0,0,0,0.3);
+		}
+		.box:hover span::before{
+			transform: rotateY(-40deg) skew(0deg,5deg);
+		}
+		.box:hover span::after{
+			transform: skew(0deg,20deg);
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<span data-str="一">一</span>
+	<span data-str="件">件</span>
+	<span data-str="白">白</span>
+	<span data-str="衬">衬</span>
+	<span data-str="衫">衫</span>
+</div>
+<script>
+
+</script>
+</body>
+</html>
